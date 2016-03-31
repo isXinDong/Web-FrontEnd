@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>标签云</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<style>
+html,body{margin:0;padding:0;width:100%;height:100%}
+body{background:#000}
+
+
+</style>
+<script src="http://qa-h5.mtq.tvm.cn/yao/common/jc/config_https.js"></script>
+<script src="http://qa-h5.mtq.tvm.cn/yao/common/jc/xdTools-1.0.js"></script>
+<!--<script src="http://qa-h5.mtq.tvm.cn/yao/common/jc/program_https.js"></script>-->
+<script src="bounceBalls.js"></script>
+</head>
+<body>
+<div class="ballBox" style="overflow:hidden;height:100%;width:100%;-webkit-user-select:none"></div>
+<script>
+var DO=document,DB=DO.body,channerBox,isTouch=('ontouchstart' in window),isTouch=('ontouchstart' in window)
+	,folder=urlFolder()
+	,winW=window.innerWidth
+	,winH=window.innerHeight,DATA=[
+ {name:"手机数码",tags:[{name:"手机保护套"},{name:"电池"},{name:"移动电源"},{name:"蓝牙耳机"},{name:"充电器"},{name:"数据线"},{name:"手机耳机"}]}
+,{name:"京东通信",tags:[{name:"学生平板"},{name:"点读机"},{name:"录音笔电"},{name:"纸书"},{name:"电子词典"},{name:"复读机"}]}
+,{name:"电脑办公",tags:[{name:"CPU"},{name:"主板"},{name:"显卡"},{name:"硬盘"},{name:"SSD硬盘"},{name:"内存机箱"},{name:"电源显示器"},{name:"刻录机"}]}
+,{name:"家居家具",tags:[{name:"灯饰照明"},{name:"厨房卫浴"},{name:"五金工具"},{name:"电工电料"},{name:"龙头"},{name:"淋浴花"}]}
+,{name:"家装厨具",tags:[{name:"墙地面材料"},{name:"装饰材料"},{name:"装修服务"},{name:"吸顶灯"},{name:"洒开关"},{name:"插座"},{name:"油漆涂料"}]}
+,{name:"男装女装",tags:[{name:"连衣裙"},{name:"T恤"},{name:"雪纺衫"},{name:"休闲裤"},{name:"牛仔裤"},{name:"针织衫"},{name:"短外套"},{name:"卫衣"},{name:"小西装"},{name:"风衣"},{name:"毛呢大衣"}]}
+,{name:"内衣珠宝",tags:[{name:"时尚饰品"},{name:"钻石"},{name:"翡翠"},{name:"玉石"},{name:"纯金"},{name:"K金饰品"},{name:"金银投资"},{name:"银饰水晶"},{name:"玛瑙彩宝"},{name:"铂金"},{name:"天然木饰珍珠"}]}
+,{name:"个护化妆",tags:[{name:"牙膏"},{name:"牙粉牙刷"},{name:"牙线"},{name:"漱口水"},{name:"套装"},{name:"女性护理"}]}
+,{name:"清洁用品",tags:[{name:"纸品"},{name:"湿巾"},{name:"衣物清洁"},{name:"清洁工具"},{name:"家庭清洁"},{name:"一次性用品"},{name:"驱虫用品"},{name:"皮具护理"}]}
+,{name:"运动户外",tags:[{name:"跑步机"},{name:"健身车"},{name:"动感单车"},{name:"哑铃"},{name:"仰卧板"},{name:"收腹机"}]}
+,{name:"汽车用品",tags:[{name:"润滑油"},{name:"添加剂"},{name:"防冻液"},{name:"滤清器"},{name:"火花塞"},{name:"雨刷"},{name:"车灯后视镜"},{name:"轮胎"},{name:"轮毂刹车片"},{name:"蓄电池"}]}
+]
+,folder=urlFolder()
+,winW=window.innerWeight,winH=window.innerHeight
+,share={title:"标签云",desc:"好看好玩尽在TVM互动！",ico:folder+"img/5.png"}
+,HOST={}
+,PAGE={"channelId":"1782","token":"33580c57d3c86f07","mpappid":"wx4c77ad98b666b7c6","yyyappid":"testyyyappid","countInstanceid":"564d846b17e6251c477e35a9","instanceidDefault":"560fa196923af7d00a028461","topicid":"1506111637584d4ba2a7d23205074dcce5","hosturl":"24gyrpdil371iwx","redirect":"http://yao.qq.com/tv/entry?redirect_uri=http://yaotv.qq.com/shake_tv/auto2/2016/02/24gyrpdil371iwx/index.html#wechat_redirect","unit":"金币","channelName":"BTV7生活频道","banquan":"http://q.cdn.mtq.tvm.cn/general/uploads/tvmd9d46f24ba43a701/564d846b17e6251c477e35a9/1a0ee8719af93f56ce56bd5dc959e477.jpg","COMMON":"../common/","FOLDER":"//qa-h5.mtq.tvm.cn/yao/http_https_new/","bangdan":"share.html","loading":"福娃正在加载中...","pusher":"0","yanzheng":"0","speech":"1","hasJB":"1","cash":"1","mascot":{"name":"福娃","img":"http://q.cdn.mtq.tvm.cn/general/uploads/tvmd9d46f24ba43a701/564d846b17e6251c477e35a9/d5ecc2e21bd4f0b60eac9bf161a7a4d3.png","sound":{"a":"http://q.cdn.mtq.tvm.cn/open/data/upload/201601/808ef164a2bbeebedd227b1c375869ec.mp3","b":"http://q.cdn.mtq.tvm.cn/open/data/upload/201602/74e4f81cb546e7ec36b92a54e653d315.mp3","c":"http://q.cdn.mtq.tvm.cn/open/data/upload/201602/09c7906a0af4bad7fda66dd7745c0bed.mp3","d":"http://q.cdn.mtq.tvm.cn/open/data/upload/201602/d4a3dc05703e5d1f935e0b7b7e585252.mp3","e":"http://q.cdn.mtq.tvm.cn/open/data/upload/201602/f96eb7572037fb57fc09a7e29aac84b4.mp3","f":"http://q.cdn.mtq.tvm.cn/open/data/upload/201602/f3025447b461d8ce7b6577bea6b8b8e6.mp3"},"word":[{"img":"http://q.cdn.mtq.tvm.cn/general/uploads/tvmd9d46f24ba43a701/564d846b17e6251c477e35a9/c46b9152c97651ca61a3859801f02f7c.png","activeimg":"http://q.cdn.mtq.tvm.cn/general/uploads/tvmd9d46f24ba43a701/564d846b17e6251c477e35a9/c46b9152c97651ca61a3859801f02f7c.png","txt":"","link":"javascript:goUrl('share')"},{"img":"http://q.cdn.mtq.tvm.cn/general/uploads/tvmd9d46f24ba43a701/564d846b17e6251c477e35a9/9a8e8ae99987778ba00837f64f081cbe.png","activeimg":"http://q.cdn.mtq.tvm.cn/general/uploads/tvmd9d46f24ba43a701/564d846b17e6251c477e35a9/9a8e8ae99987778ba00837f64f081cbe.png","txt":"","link":"javascript:goUrl('coin')"},{"img":"http://q.cdn.mtq.tvm.cn/general/uploads/tvmd9d46f24ba43a701/564d846b17e6251c477e35a9/0aeb94a6d2ae1352d34567aa9f037523.png","activeimg":"http://q.cdn.mtq.tvm.cn/general/uploads/tvmd9d46f24ba43a701/564d846b17e6251c477e35a9/0aeb94a6d2ae1352d34567aa9f037523.png","txt":"","link":"javascript:goUrl('rwzq')"},{"img":"http://q.cdn.mtq.tvm.cn/general/uploads/tvmd9d46f24ba43a701/564d846b17e6251c477e35a9/e7699cf966057f5e0acafcd898727cd6.png","activeimg":"http://q.cdn.mtq.tvm.cn/general/uploads/tvmd9d46f24ba43a701/564d846b17e6251c477e35a9/e7699cf966057f5e0acafcd898727cd6.png","txt":"","link":"javascript:goUrl('home')"}]},"menu":{"a":"http://q.cdn.mtq.tvm.cn/general/uploads/tvmd9d46f24ba43a701/564d846b17e6251c477e35a9/e7699cf966057f5e0acafcd898727cd6.png","b":"http://q.cdn.mtq.tvm.cn/general/uploads/tvmd9d46f24ba43a701/564d846b17e6251c477e35a9/9a8e8ae99987778ba00837f64f081cbe.png","c":"http://q.cdn.mtq.tvm.cn/general/uploads/tvmd9d46f24ba43a701/564d846b17e6251c477e35a9/0aeb94a6d2ae1352d34567aa9f037523.png","d":"http://q.cdn.mtq.tvm.cn/general/uploads/tvmd9d46f24ba43a701/564d846b17e6251c477e35a9/c46b9152c97651ca61a3859801f02f7c.png"},"errName1":"摇大霸","errName2":"摇大侠","errName3":"摇大仙","errIco":"//a-h5.mtq.tvm.cn/yao/common/img/user.gif","background":"http://q.cdn.mtq.tvm.cn/open/data/upload/201601/9275e4e147a78c09efc9fef22e842112.jpg","hiddenBanner":"0","shareBanner":"0"}
+,mainVar={"userInfo":{"city":"","nickname":"心动","ret":0,"openid":"o1xVoxH2wa2vr_I3Yu2onfRLlx3c","resTime":1440228050,"country":"","sig":"04c272269a4a32b689e29de30d7f0a70","status":"ok","errmsg":"","weixin_avatar_url":"http://wx.qlogo.cn/mmopen/Q3auHgzwzM7SrVfYDxsA06My4y650joHhiaGpUDsJWGMWZQS3eccibFuKoS30pRdIwJmoiauCu1elQjicwjYulxJjw","sigExpire":1454559966,"sex":1,"province":"Beijing"},"ele":{"mainBox":{}},"game":{},"mainData":{"tvm_id":"c53eae263e803d32d8f1853377468bb8","interactiveType":"hudong","jcid":"","userBase":"1.5","countdown":350,"beginTime":1457701172,"coinSwitch":"0","jcObj":"","nextCountdown":-1,"commitJCDeal":0,"adAudio":"","prize":[{"type":5,"prize_id":"567908afc284af71448b456e"}],"channel_id":"1382","sourceCache":"ngxShareDict","adScheme":0,"atype":"YAOTV","startTime":"1457701060","content1":{"instance_id":"56647ff21d1dcf3c7d0ab4c7","scheme_name":"社区","ad_id":"tvmf35b0d26055f9f0f","wx_token":"334ca23eddb7633e","tvmusername":"社区","name":"社区","app_id":"tvmf35b0d26055f9f0f"},"wx_token":"334ca23eddb7633e","tvmusername":"Google AdSense","amountBase":"7","time_interval_id":"56e13448e264418f5c1b81f1","countOverTime":1457701172,"nextCountOverTime":-1,"adVideo":"http://ws.cdn.yaotv.tvm.cn/Public/user-uploads/videos/20151222/1450772951-23434.mp4?size=16:9","currentActivity":1,"resTime":1457706408,"broadcast_time":"2016-03-11 20:57:40","length":"100","mainappid":"55755a1fda3253ec41432a0d","coinNum":"5","paiTimeUnix":1457701172492,"coinPercent":"50","status":"ok","coinSingleNum":"2","scheme_id":"2c467cbf-a888-11e5-b44d-288023a1a6e8","jcTotal":"","adImgs":"","joinHudong":"1","coinMaximum":"30","cdnInstance":"http://q.cdn.mtq.tvm.cn/open/data/scene/d/f/566486541d1dcf3c7d0ab4df.js","type":"module","coinName":"金币","yyyappid":"wxb9fa43149c1f2494"},"times":{"modTime":6},"adData":{"display":-1,"dsp":1},"sceneData":{},"mzArr":[],"status":{},"bird":{"ele":{}},"cbKey":null,"prizeID":"56e13448e264418f5c1b81f11457701172492","paiTimeUnix":1457701172492,"contentId":"56af256d4a9629b97d35739f","monitorData":[],"cSocket":{},ele:{mainBox:createNode(DB,"div",{className:"wrap"})}}
+ window.getCloudData=function($data){
+		var data=$data.data,taglist=data.taglist
+		,dataArr=[];
+		if(+$data.errcode===0){			
+//		for(var i=0,len=taglist.length;i<len;i++){
+//			dataArr[i]={"id":taglist[i].catid,"name":taglist[i].catname,tags:[]};
+//			var tags=taglist[i].tags,index=0;
+//			for(attr in tags){
+//				dataArr[i].tags[index]={"id":attr,"name":tags[attr]};
+//				index++;
+//			};
+//		};
+/*for(var i in taglist){
+	dataArr.push({"id":i,"name":taglist[i]});
+	}
+*/
+for(var i=0,il=DATA.length,d;i<il;i++){
+	d=DATA[i]
+	for(var ii=0,dd=d.tags,ddl=dd.length;ii<ddl;ii++){
+		dataArr.push({"id":i,"name":dd[ii].name});
+	}	
+}
+ballEngine.run({data:dataArr,background:"img/bg.jpg"})
+		//tagCloud=new xdRandomBall(dataArr,{background:"img/bg.jpg"});	
+			//mainVar.bird.hidd();
+//		var prize=prizeFun.call({});
+//			prize.display();
+//			mainVar.game.result='answer';
+//			getJJ();
+//			mainVar.times.getMoneyTime=setInterval(getJJ,3000)
+		}
+		setStorage("set","banner",JSON.stringify(data.column))
+		window.getCloudData=null;
+	}
+var ballEngine	
+function instance($data){
+	var data=toObject($data)
+	console.log(data)
+	ballEngine=bounceBalls(data)
+	getCloudData({errcode:0,data:{tags:[]}})	
+	}	
+setJsonp("//q.cdn.mtq.tvm.cn/open/data/scene/8/c/56f0b8e03201dd6353bf0f8c.js")	
+
+
+</script>
+</body>
+</html>
