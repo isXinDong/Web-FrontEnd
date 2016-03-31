@@ -10,10 +10,8 @@ body{background:#000}
 
 
 </style>
-<script src="http://qa-h5.mtq.tvm.cn/yao/common/jc/config_https.js"></script>
-<script src="http://qa-h5.mtq.tvm.cn/yao/common/jc/xdTools-1.0.js"></script>
-<!--<script src="http://qa-h5.mtq.tvm.cn/yao/common/jc/program_https.js"></script>-->
-<script src="bounceBalls.js"></script>
+<script src="jc/xdTools-1.0.js"></script>
+<script src="jc/bounceBalls.js"></script>
 </head>
 <body>
 <div class="ballBox" style="overflow:hidden;height:100%;width:100%;-webkit-user-select:none"></div>
@@ -71,7 +69,7 @@ ballEngine.run({data:dataArr,background:"img/bg.jpg"})
 //			getJJ();
 //			mainVar.times.getMoneyTime=setInterval(getJJ,3000)
 		}
-		setStorage("set","banner",JSON.stringify(data.column))
+		//setStorage("set","banner",JSON.stringify(data.column))
 		window.getCloudData=null;
 	}
 var ballEngine	
